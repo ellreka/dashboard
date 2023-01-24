@@ -10,7 +10,8 @@ interface Props {
 
 export const TodoistWidget: FC<Props> = ({ projectId, title }) => {
   const { data } = SWR<TodoistTasks>("/api/todoist", fetcher, {
-    refreshInterval: 60 * 1000,
+    // 1 hour
+    refreshInterval: 1000 * 60 * 60,
   });
 
   const todos = data
